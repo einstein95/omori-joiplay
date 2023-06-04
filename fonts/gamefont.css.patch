@@ -1,23 +1,19 @@
 diff --git a/OmoriSource/project/fonts/gamefont.css b/omori-joiplay/fonts/gamefont.css
-index e7c9f5d..e41ad60 100644
+index e7c9f5d..01adb2f 100644
 --- a/OmoriSource/project/fonts/gamefont.css
 +++ b/omori-joiplay/fonts/gamefont.css
 @@ -1,11 +1,43 @@
--@font-face {
--    font-family: GameFont;
+ @font-face {
+     font-family: GameFont;
 -    src: url("mplus-1m-regular.ttf");
--}
--
++    src: url("OMORI_GAME2.ttf");
+ }
+ 
 -.IIV::-webkit-media-controls-play-button,
 -video::-webkit-media-controls-start-playback-button {
 -    opacity: 0;
 -    pointer-events: none;
 -    width: 5px;
-+@font-face {
-+    font-family: GameFont;
-+    src: url("OMORI_GAME2.ttf");
-+}
-+
 +body {
 +    overflow: hidden;
 +}
