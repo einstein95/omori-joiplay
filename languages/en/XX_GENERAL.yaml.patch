@@ -1,0 +1,28 @@
+diff --git a/OmoriSource/project/languages/en/XX_GENERAL.yaml b/omori-joiplay/languages/en/XX_GENERAL.yaml
+index e7a7b77..edc19bf 100644
+--- a/OmoriSource/project/languages/en/XX_GENERAL.yaml
++++ b/omori-joiplay/languages/en/XX_GENERAL.yaml
+@@ -26,9 +26,9 @@ message_3:
+ # - YES/NO
+ # -----------------------------------------------
+ message_4:
+-    text: YES
++    text: "YES"
+ message_5:
+-    text: NO
++    text: "NO"
+ 
+ # -----------------------------------------------
+ # - X LEFT THE PARTY
+@@ -56,9 +56,9 @@ message_9:
+ # - NOD / SHAKE
+ # -----------------------------------------------
+ message_10:
+-    text: YES
++    text: "YES"
+ message_11:
+-    text: NO
++    text: "NO"
+ 
+ # -----------------------------------------------
+ # - FOUND ITEM

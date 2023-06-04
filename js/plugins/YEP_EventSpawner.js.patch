@@ -1,0 +1,14 @@
+diff --git a/OmoriSource/project/js/plugins/YEP_EventSpawner.js b/omori-joiplay/js/plugins/YEP_EventSpawner.js
+index 198c373..bd01d3b 100644
+--- a/OmoriSource/project/js/plugins/YEP_EventSpawner.js
++++ b/omori-joiplay/js/plugins/YEP_EventSpawner.js
+@@ -355,7 +355,8 @@ Yanfly.PreloadedMaps = Yanfly.PreloadedMaps || [];
+ Yanfly.loadMapData = function(mapId) {
+   mapId = mapId.clamp(1, 999);
+   if (Yanfly.PreloadedMaps[mapId]) return;
+-  if(Utils.isOptionValid("test")) {
++  // if(Utils.isOptionValid("test")) {
++  if(true) {
+     var src = 'Map%1.json'.format(mapId.padZero(3));
+     var xhr = new XMLHttpRequest();
+     var url = 'data/' + src;

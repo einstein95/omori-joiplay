@@ -1,0 +1,26 @@
+diff --git a/OmoriSource/project/languages/en/XX_SYSTEM.yaml b/omori-joiplay/languages/en/XX_SYSTEM.yaml
+index 0ad1d48..e9562de 100644
+--- a/OmoriSource/project/languages/en/XX_SYSTEM.yaml
++++ b/omori-joiplay/languages/en/XX_SYSTEM.yaml
+@@ -124,17 +124,17 @@ message_30:
+ # - YES/NO
+ # -----------------------------------------------
+ message_10:
+-    text: YES
++    text: "YES"
+ message_11:
+-    text: NO
++    text: "NO"
+ 
+ # -----------------------------------------------
+ # - NOD / SHAKE
+ # -----------------------------------------------
+ message_12:
+-    text: YES
++    text: "YES"
+ message_13:
+-    text: NO
++    text: "NO"
+ 
+ # -----------------------------------------------
+ # - GO OUTSIDE / CLOSE DOOR

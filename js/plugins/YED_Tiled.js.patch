@@ -1,0 +1,14 @@
+diff --git a/OmoriSource/project/js/plugins/YED_Tiled.js b/omori-joiplay/js/plugins/YED_Tiled.js
+index 066da68..23ca0ee 100644
+--- a/OmoriSource/project/js/plugins/YED_Tiled.js
++++ b/omori-joiplay/js/plugins/YED_Tiled.js
+@@ -191,7 +191,8 @@ const YED_TiledParameters = PluginManager.parameters("YED_Tiled");
+ 	                return "continue";
+ 	            }
+ 
+-				if(Utils.isOptionValid("test")) {
++				//if(Utils.isOptionValid("test")) {
++				if(true) {
+ 					DataManager._tilesetToLoad++;
+ 					var filename = tileset.source.replace(/^.*[\\\/]/, '');
+ 					var xhr = new XMLHttpRequest();

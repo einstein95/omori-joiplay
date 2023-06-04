@@ -1,0 +1,35 @@
+diff --git a/OmoriSource/project/js/plugins/Text_Language_Processor.js b/omori-joiplay/js/plugins/Text_Language_Processor.js
+index 0ec5d34..58ea11f 100644
+--- a/OmoriSource/project/js/plugins/Text_Language_Processor.js
++++ b/omori-joiplay/js/plugins/Text_Language_Processor.js
+@@ -173,6 +173,7 @@ LanguageManager.getDatabaseText = function(code, language) {
+ // * Load Language Files
+ //=============================================================================
+ LanguageManager.loadLanguageFiles = function(language) {
++  const util = require('util');
+   var path = require('path');
+   var fs = require('fs');
+   var yaml = require('./js/libs/js-yaml-master')
+@@ -196,7 +197,12 @@ LanguageManager.loadLanguageFiles = function(language) {
+     // If Format is yaml
+     if (format === '.yaml') {
+       // Get Language File Data
+-      var data = yaml.safeLoad(fs.readFileSync(filePath + '/' + filename + format, 'utf8'));
++      try {
++        var data = yaml.safeLoad(fs.readFileSync(filePath + '/' + filename + format, 'utf8'));
++      } catch (error) {
++        console.log(util.format("%s caused error, skipping...", filename));
++        var data = {}
++      }
+       // Set Language Text Data
+       this._data[language].text[filename] = data;
+       continue;
+@@ -234,7 +240,7 @@ LanguageManager.loadAllLanguageFiles = function() {
+   };
+ };
+ // Initialize Language Manager
+-//LanguageManager.initialize();
++LanguageManager.initialize();
+ 
+ 
+ 

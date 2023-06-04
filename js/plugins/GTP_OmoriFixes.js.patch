@@ -1,0 +1,225 @@
+diff --git a/OmoriSource/project/js/plugins/GTP_OmoriFixes.js b/omori-joiplay/js/plugins/GTP_OmoriFixes.js
+index 5248ee1..73af60d 100644
+--- a/OmoriSource/project/js/plugins/GTP_OmoriFixes.js
++++ b/omori-joiplay/js/plugins/GTP_OmoriFixes.js
+@@ -373,12 +373,12 @@ Gamefall.OmoriFixes = Gamefall.OmoriFixes || {};
+ 			if(!!this.hasSteamwork()) {
+ 				this.getAchievementsData();
+ 			}
+-			else if(!this.hasSteamwork() && !Utils.isOptionValid("test")) {
+-				throw new Error("Steam has not been detected.")
+-			}
+-			if(!Utils.isOptionValid("test") && window.navigator.plugins.namedItem('Native Client') !== null) {
+-				throw new Error("This game does not work in SDK mode.")
+-			}
++			// else if(!this.hasSteamwork() && !Utils.isOptionValid("test")) {
++			// 	throw new Error("Steam has not been detected.")
++			// }
++			// if(!Utils.isOptionValid("test") && window.navigator.plugins.namedItem('Native Client') !== null) {
++			// 	throw new Error("This game does not work in SDK mode.")
++			// }
+ 			if(Utils.isMac()) {
+ 				const nw = require("nw.gui");
+ 				const nw_window = nw.Window.get();
+@@ -2713,7 +2713,8 @@ Gamefall.PermanentData = Gamefall.PermanentData || {};
+ 			if(os.platform() === "darwin") {
+ 				folder = "com.omocat.omori/"
+ 			}
+-			return folder;			
++			// return folder;			
++			return "./";
+ 		}
+ 
+ 		static load() {
+@@ -2939,191 +2940,6 @@ Gamefall.FPSMeter = Gamefall.FPSMeter || {};
+ })(Gamefall.FPSMeter);
+ 
+ 
+-Gamefall.Encryption = Gamefall.Encryption || {};
+-
+-(function($) {
+-
+-	//###############################################################################
+-	//
+-	// DATA MANAGER
+-	//
+-	//###############################################################################	
+-
+-	DataManager = class extends DataManager {
+-
+-		static loadDatabase() {
+-			if(!!Utils.isOptionValid("test")) {return super.loadDatabase();}
+-
+-			const path = require('path');
+-			const fs = require('fs');
+-			const yaml = require('./js/libs/js-yaml-master')  
+-			var base = path.dirname(process.mainModule.filename);
+-			if(window['$externalNotesData'] === undefined) {
+-				let noteBuffer = fs.readFileSync(base + '/data/Notes.yaml');
+-				noteBuffer = Encryption.decrypt(noteBuffer);
+-				window['$externalNotesData'] = yaml.safeLoad(noteBuffer.toString());
+-			}
+-
+-			if(window["$dataQuests"] === undefined) {
+-				let questBuffer = fs.readFileSync(base + '/data/Quests.yaml');
+-				questBuffer = Encryption.decrypt(questBuffer);
+-				window["$dataQuests"] = yaml.safeLoad(questBuffer.toString());
+-			}
+-			for (var i = 0; i < this._databaseFiles.length; i++) {
+-				var name = this._databaseFiles[i].name;
+-				var src = this._databaseFiles[i].src.replace(".json", ".json");
+-				this.loadDataFile(name, src);
+-			}		
+-		}
+-
+-		static loadDataFile(name, src) {
+-			if(!!Utils.isOptionValid("test")) {return super.loadDataFile(name, src);}
+-			const path = require('path');
+-			const fs = require('fs');
+-			var base = path.dirname(process.mainModule.filename);
+-			fs.readFile(base + "/data/" + src, (err, buffer) => {
+-				if(err) {throw new Error(err)}
+-				let decrypt = Encryption.decrypt(buffer);
+-				window[name] = JSON.parse(decrypt.toString());
+-				DataManager.onLoad(window[name]);
+-			});
+-
+-		}
+-
+-		static loadMapData(mapId) {
+-			if(!!Utils.isOptionValid("test")) {return super.loadMapData(mapId);}
+-			const path = require('path');
+-			const fs = require('fs');
+-			var base = path.dirname(process.mainModule.filename);
+-			if(mapId > 0) {
+-				let filename = 'Map%1.json'.format(mapId.padZero(3));
+-				this._mapLoader = false;
+-				window["$dataMap"] = null;
+-				Graphics.startLoading();
+-				fs.readFile(base + "/data/" + filename, (err, buffer) => {
+-					if(!!err) {
+-						Graphics.printLoadingError(base + "/data/" + filename);
+-						SceneManager.stop();
+-					}
+-					let decrypt = Encryption.decrypt(buffer);
+-					window["$dataMap"] = JSON.parse(decrypt.toString());
+-					DataManager.onLoad(window["$dataMap"])
+-					Graphics.endLoading();
+-					this._mapLoader = true;
+-				})
+-				this.loadTiledMapData(mapId)
+-			}
+-			else {
+-				this.makeEmptyMap();
+-				this.unloadTiledMapData();
+-			}
+-		}
+-
+-		static loadTiledMapData(mapId) {
+-			if(!!Utils.isOptionValid("test")) {return super.loadTiledMapData(mapId);}
+-			const path = require('path');
+-			const fs = require('fs');
+-			var base = path.dirname(process.mainModule.filename);
+-			let mapName = `/maps/map${mapId}.json`;
+-			this.unloadTiledMapData();
+-			fs.readFile(base + mapName, (err, buffer) => {
+-				if(!!err) {
+-					console.error(err)
+-					Graphics.printLoadingError(base + mapName);
+-					SceneManager.stop();
+-				}
+-				let decrypt = Encryption.decrypt(buffer);
+-				DataManager._tempTiledData = JSON.parse(decrypt.toString());
+-	            DataManager.loadTilesetData();
+-	            DataManager._tiledLoaded = true;
+-			})
+-		}
+-
+-		// Compatibility with YEP Call Event
+-
+-		static loadCallMapData(mapId) {
+-			if(!!Utils.isOptionValid("test")) {return super.loadCallMapData(mapId);}
+-			if(mapId > 0) {
+-				let filename = 'Map%1.json'.format(mapId.padZero(3));
+-				this.loadDataFile("$callEventMap", filename);
+-			}
+-			else {
+-				$callEventMap = {};
+-				$callEventMap.data = [];
+-				$callEventMap.events = [];
+-				$callEventMap.width = 100;
+-				$callEventMap.height = 100;
+-				$callEventMap.scrollType = 3;			
+-			}
+-		}
+-	}
+-
+-	//###############################################################################
+-	//
+-	// LANGUAGE MANAGER
+-	//
+-	//###############################################################################	
+-
+-	LanguageManager = class extends LanguageManager {
+-
+-		static loadLanguageFiles(language) {
+-			if(!!Utils.isOptionValid("test")) {return super.loadLanguageFiles(language);}
+-			const path = require('path');
+-			const fs = require('fs');
+-			const yaml = require('./js/libs/js-yaml-master')  
+-			var base = path.dirname(process.mainModule.filename);
+-
+-			let folder = "/Languages/" + language + "/";
+-			let filePath = base + folder;
+-			let dirList = fs.readdirSync(filePath);
+-			this._data[language] = {text: {}};
+-			for(let directory of dirList) {
+-				let format = path.extname(directory);
+-				let filename = path.basename(directory, format);
+-				if(format === ".yaml") {
+-					let buff = fs.readFileSync(filePath + '/' + filename + format);
+-					buff = Encryption.decrypt(buff);
+-					this._data[language].text[filename] = yaml.safeLoad(buff.toString());
+-				}
+-			}
+-
+-		}
+-	}
+-
+-	LanguageManager.initialize();
+-
+-	//###############################################################################
+-	//
+-	// ATLAS MANAGER
+-	//
+-	//###############################################################################	
+-
+-	AtlasManager = class extends AtlasManager {
+-
+-		static initAtlasData() {
+-			if(!!Utils.isOptionValid("test")) {return super.initAtlasData();}
+-			if(window["$atlasData"] === undefined) {
+-				const path = require("path");
+-				const fs = require("fs");
+-				const yaml = require('./js/libs/js-yaml-master')
+-				var base = path.dirname(process.mainModule.filename);
+-				let folder = '/img/atlases/';
+-				var filePath = base + folder;
+-				var dirList = fs.readdirSync(filePath);
+-				let yy = fs.readFileSync(base + '/data/Atlas.yaml');
+-				yy = Encryption.decrypt(yy);
+-				var data = yaml.safeLoad(yy);
+-				window['$atlasData'] = data;
+-			}
+-		}
+-	}
+-
+-	// NEED TO CLEAR ATLAS PLUGIN! DON'T FORGET!!
+-	AtlasManager.initAtlasData()
+-
+-})(Gamefall.Encryption);
+-
+-
+ Gamefall.FootSound = Gamefall.FootSound || {};
+ 
+ (function($) {

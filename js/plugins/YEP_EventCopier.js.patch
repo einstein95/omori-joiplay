@@ -1,0 +1,14 @@
+diff --git a/OmoriSource/project/js/plugins/YEP_EventCopier.js b/omori-joiplay/js/plugins/YEP_EventCopier.js
+index 8bd0261..c31a39e 100644
+--- a/OmoriSource/project/js/plugins/YEP_EventCopier.js
++++ b/omori-joiplay/js/plugins/YEP_EventCopier.js
+@@ -271,7 +271,8 @@ Yanfly.Param.EventCopierPostCopy =
+ Yanfly.loadMapData = function(mapId) {
+   mapId = mapId.clamp(1, 999);
+   if (Yanfly.PreloadedMaps[mapId]) return;
+-  if(!!Utils.isOptionValid("test")) {
++  // if(!!Utils.isOptionValid("test")) {
++  if(true) {
+     var src = 'Map%1.json'.format(mapId.padZero(3));
+     var xhr = new XMLHttpRequest();
+     var url = 'data/' + src;

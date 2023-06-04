@@ -1,0 +1,17 @@
+diff --git a/OmoriSource/project/languages/en/farawaytown_extras_fears.yaml b/omori-joiplay/languages/en/farawaytown_extras_fears.yaml
+index ae8a4b5..e1026f1 100644
+--- a/OmoriSource/project/languages/en/farawaytown_extras_fears.yaml
++++ b/omori-joiplay/languages/en/farawaytown_extras_fears.yaml
+@@ -27,10 +27,10 @@ message_7:
+       text: \n<SOMETHING>\fn<OMORI_GAME>Sweet little brother.\! It is time to rest...\!<br>Shut your eyes... and stay very, very still...
+ 
+ message_8:
+-      text: NO
++      text: "NO"
+ 
+ message_9:
+-      text: YES
++      text: "YES"
+ 
+ message_10:
+       text: You feel something crawling up your leg.

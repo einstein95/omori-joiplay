@@ -1,0 +1,13 @@
+diff --git a/OmoriSource/project/js/plugins/Atlas Loader.js b/omori-joiplay/js/plugins/Atlas Loader.js
+index bb1e9c8..8760484 100644
+--- a/OmoriSource/project/js/plugins/Atlas Loader.js	
++++ b/omori-joiplay/js/plugins/Atlas Loader.js	
+@@ -237,7 +237,7 @@ AtlasManager.loadAllAtlasImages = function() {
+ };
+ 
+ // Initialize Atlas Data
+-//AtlasManager.initAtlasData()
++AtlasManager.initAtlasData()
+ 
+ 
+ 

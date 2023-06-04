@@ -1,0 +1,13 @@
+diff --git a/OmoriSource/project/languages/en/dreamworld_npc_dialogue_pinwheel.yaml b/omori-joiplay/languages/en/dreamworld_npc_dialogue_pinwheel.yaml
+index bc476da..e38ba02 100644
+--- a/OmoriSource/project/languages/en/dreamworld_npc_dialogue_pinwheel.yaml
++++ b/omori-joiplay/languages/en/dreamworld_npc_dialogue_pinwheel.yaml
+@@ -62,7 +62,7 @@ message_10:
+       text: You thought the song was pretty \SINV[1]g'wood\SINV[0].
+ 
+ message_51:
+-      text: YES
++      text: "YES"
+ 
+ message_52:
+       text: You don't have enough CLAMS.

@@ -1,0 +1,59 @@
+diff --git a/OmoriSource/project/fonts/gamefont.css b/omori-joiplay/fonts/gamefont.css
+index e7c9f5d..e41ad60 100644
+--- a/OmoriSource/project/fonts/gamefont.css
++++ b/omori-joiplay/fonts/gamefont.css
+@@ -1,11 +1,43 @@
+-@font-face {
+-    font-family: GameFont;
+-    src: url("mplus-1m-regular.ttf");
+-}
+-
+-.IIV::-webkit-media-controls-play-button,
+-video::-webkit-media-controls-start-playback-button {
+-    opacity: 0;
+-    pointer-events: none;
+-    width: 5px;
++@font-face {
++    font-family: GameFont;
++    src: url("OMORI_GAME2.ttf");
++}
++
++body {
++    overflow: hidden;
++}
++
++#fpsCounterBox {
++    position: absolute;
++    left: 5px;
++    top: 5px;
++    width: 90px;
++    height: 40px;
++    background: #222;
++    opacity: 0.8;
++    z-index: 8;
++}
++#fpsCounterLabel {
++    position: absolute;
++    top: 0px;
++    left: 0px;
++    padding: 5px 10px;
++    height: 30px;
++    line-height: 32px;
++    font-size: 24px;
++    font-family: GameFont;
++    color: #fff;
++    text-align: left;
++}
++#fpsCounterNumber {
++    position: absolute;
++    top: 0px;
++    right: 0px;
++    padding: 5px 10px;
++    height: 30px;
++    line-height: 30px;
++    font-size: 28px;
++    font-family: GameFont;
++    color: #fff;
++    text-align: right;
+ }
+\ No newline at end of file

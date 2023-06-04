@@ -1,0 +1,14 @@
+diff --git a/OmoriSource/project/js/plugins/YEP_EventMorpher.js b/omori-joiplay/js/plugins/YEP_EventMorpher.js
+index 12df1d1..8765d1a 100644
+--- a/OmoriSource/project/js/plugins/YEP_EventMorpher.js
++++ b/omori-joiplay/js/plugins/YEP_EventMorpher.js
+@@ -210,7 +210,8 @@ Yanfly.PreloadedMaps = Yanfly.PreloadedMaps || [];
+ Yanfly.loadMapData = function(mapId) {
+   mapId = mapId.clamp(1, 999);
+   if (Yanfly.PreloadedMaps[mapId]) return;
+-  if(Utils.isOptionValid("test")) {
++  // if(Utils.isOptionValid("test")) {
++  if(true) {
+     var src = 'Map%1.json'.format(mapId.padZero(3));
+     var xhr = new XMLHttpRequest();
+     var url = 'data/' + src;

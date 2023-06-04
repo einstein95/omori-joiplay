@@ -1,0 +1,21 @@
+diff --git a/OmoriSource/project/js/plugins.js b/omori-joiplay/js/plugins.js
+index bcf48d1..1c11039 100644
+--- a/OmoriSource/project/js/plugins.js
++++ b/omori-joiplay/js/plugins.js
+@@ -165,7 +165,7 @@ var $plugins =
+ {"name":"WaitFPS","status":true,"description":"WaitFPS","parameters":{"momentFPSThreshold":"57","meanFPSFrames":"3","meanFPSThreshold":"50","maxWaitTime":"90"}},
+ {"name":"--------------------","status":false,"description":"------------------------------------------------------------","parameters":{}},
+ {"name":"SpaghettiCode","status":true,"description":"","parameters":{}},
+-{"name":"Archeia_Steamworks","status":true,"description":"Plugin Description <Archeia_Steamworks>","parameters":{"Steamworks Debug":"true"}},
++{"name":"Archeia_Steamworks","status":false,"description":"Plugin Description <Archeia_Steamworks>","parameters":{"Steamworks Debug":"true"}},
+ {"name":"--------------------","status":false,"description":"------------------------------------------------------------","parameters":{}},
+ {"name":"YEP_TestPlayAssist","status":false,"description":"v1.00 Test playing can become a chore. This plugin offers new\nfeatures that would help make your test playing more flexible and efficient.","parameters":{"AutoStart":"true","OnSwitches":"[]","CommonEvent":"0","StartCode":"\"// Get 10x of each regular item. Exclude key/hidden items.\\nfor (var i = 1; i < $dataItems.length; ++i) {\\n  var item = $dataItems[i];\\n  if (!item) continue;\\n  if (item.itypeId !== 1) continue;\\n  if (item.name.trim().length <= 0) continue;\\n  $gameParty.gainItem(item, 10);\\n}\"","AutoFPS":"true","AutoFullScr":"false"}},
+ {"name":"YEP_Debugger","status":false,"description":"v2.07 This is Yanfly's debugger plugin tool given to\nfaithful supporters to help you testplay your game better!","parameters":{"---Startup---":"","Auto New Game":"false","Auto Show FPS":"false","Auto Full Screen":"false","Auto Console":"true","---Visual---":"","Debug Window Tone":"50, 50, 50, 0","Console Messages":"true","---Field---":"","Field Debug":"true","Debug Menu Icon":"225","---Battle---":"","Battle Test TP Start":"value = user.maxTp()","Damage CTRL Modifier":"value *= -1","Damage SHIFT Modifier":"value *= 10","EXP CTRL Modifier":"rate *= 100","EXP SHIFT Modifier":"rate *= 10","Warning Message":"true","Disable Variance":"false","100% State Rate":"false","---Spawn Options---":"","Spawn at Boat":"false","Spawn at Ship":"false","Spawn at Airship":"false"}},
+@@ -174,6 +174,5 @@ var $plugins =
+ {"name":"TDS Footprints","status":true,"description":"Adds footprints for characters.","parameters":{}},
+ {"name":"GTP_OmoriFixes","status":true,"description":"v3.5.0 Bug Fixes and Optimization for OMORI","parameters":{}},
+ {"name":"DisableMouse","status":true,"description":"Disables mouse clicks.","parameters":{}},
+-{"name":"--------------------","status":false,"description":"------------------------------------------------------------","parameters":{}},
+-{"name":"Dev","status":true,"description":"Shows the developer console on boot.","parameters":{"Game Window X-Offset":"150","Game Window Y-Offset":"0","Autofocus":"true"}}
++{"name":"--------------------","status":false,"description":"------------------------------------------------------------","parameters":{}}
+ ];
