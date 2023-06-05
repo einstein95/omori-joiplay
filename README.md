@@ -1,2 +1,2 @@
 # omori-joiplay
-JoiPlay patches for a decrypted version of Omori (v1.08)
+Patched files necessary to get a decrypted version of Omori (v1.08) running on JoiPlay.
