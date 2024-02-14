@@ -9,9 +9,6 @@ Imported.GTP_OmoriFixes = true;
 var Gamefall = Gamefall || {};
 Gamefall.OmoriFixes = Gamefall.OmoriFixes || {};
 
-// For .exe
-// showDevTools()
-
 //=============================================================================
  /*:
  * @plugindesc v3.5.1 Bug Fixes and Optimization for OMORI
